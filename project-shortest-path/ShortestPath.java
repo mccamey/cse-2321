@@ -13,12 +13,9 @@ import java.io.*;
 
 public class ShortestPath {
 	
-	/**
-	 * Creates a Map linking a starting node to a list of Path objects, a data structure
+	/*
+	 *  Creates a Map linking a starting node to a list of Path objects, a data structure
 	 *  containing adjacent nodes and their respective distancess.
-	 * 
-	 * @param fname
-	 * @return
 	 */
 	
 	public static Map< String, List<Path> > readPaths(String fname){
@@ -39,6 +36,7 @@ public class ShortestPath {
 					destinations = new LinkedList<Path>();	
 				else
 					destinations = paths.get(tokens[0]);
+				
 				destinations.add(forwards);
 				paths.put(tokens[0], destinations);
 
@@ -46,6 +44,7 @@ public class ShortestPath {
 					destinations = new LinkedList<Path>();	
 				else
 					destinations = paths.get(tokens[1]);
+				
 				destinations.add(backwards);
 				paths.put(tokens[1], destinations);
 			}
@@ -57,11 +56,7 @@ public class ShortestPath {
 		return paths;
 	}
 	
-	/**
-	 * Displays the Map of starting nodes and their respective potential Paths.
-	 * 
-	 * @param map
-	 */
+	//  Displays the Map of starting nodes and their respective potential Paths.
 	
 	public static void displayAdjacencyList(Map< String,List<Path> > map) {
 		Set<String> keys = map.keySet();
@@ -71,7 +66,7 @@ public class ShortestPath {
 		System.out.println();
 		System.out.printf("%-15s", s);
 		System.out.println("Paths");
-		System.out.println("-------------- ------------------------------");
+		System.out.println("--------------------------------------------");
 		
 		while (iter.hasNext()) {
 			s = iter.next();
@@ -92,13 +87,7 @@ public class ShortestPath {
 		System.out.println();
 	}
 	
-	/**
-	 * Returns a Map containing the shortest distance to all destinations given a starting point.
-	 * 
-	 * @param start
-	 * @param adj_list
-	 * @return shortestDistances
-	 */
+	//  Returns a Map containing the shortest distance to all destinations given a starting point.
 	
 	public static Map<String, Double> findDistances(String start, Map<String, List<Path>> adj_list){
 		Map<String, Double> shortestDistances = new HashMap<String, Double>();
@@ -120,12 +109,7 @@ public class ShortestPath {
 		return shortestDistances;
 	}
 	
-	/**
-	 * Displays the Map containing the shortest distance to all destinations given a starting point.
-	 * 
-	 * @param start
-	 * @param shortest
-	 */
+	//  Displays the Map containing the shortest distance to all destinations given a starting point.
 	
 	public static void displayShortest(String start, Map<String, Double> shortest) {
 		Set<String> keys = shortest.keySet();
@@ -136,7 +120,7 @@ public class ShortestPath {
 		System.out.println("Distances from " + start + " to each city:");
 		System.out.printf("%-15s", s);
 		System.out.println("Distance");
-		System.out.println("-------------- --------");
+		System.out.println("-----------------------");
 		
 		while(iter.hasNext()) {
 			s = iter.next();

@@ -13,9 +13,8 @@ import java.io.*;
 
 public class ShortestPath {
 	
-	/*
-	 *  Creates a Map linking a starting node to a list of Path objects, a data structure
-	 *  containing adjacent nodes and their respective distancess.
+	/* Creates a Map linking a starting node to a list of Path objects, a data structure
+	 * containing adjacent nodes and their respective distancess.
 	 */
 	
 	public static Map< String, List<Path> > readPaths(String fname){
